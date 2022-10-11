@@ -1,33 +1,39 @@
-var titulo = document.querySelector(".titulo");
-titulo.textContent = "Aparecida Nutricionista";
+//var titulo = document.querySelector(".titulo");
+//titulo.textContent = "Aparecida Nutricionista";
 
-var paciente = document.querySelector("#primeiroPaciente");
-var tdPeso = paciente.querySelector(".info-peso");
-var peso = tdPeso.textContent;
+var pacientes = document.querySelectorAll(".paciente");
 
-var tdAltura = paciente.querySelector(".info-altura");
-var altura = tdAltura.textContent;
+for (var i = 0; i < pacientes.length ; i++) {
 
-var tdImc = document.querySelector(".info-imc");
+    var paciente = pacientes[0];
 
-var pesoEhValido = true;
-var alturaEhValida = true;
+    var tdPeso = paciente.querySelector(".info-peso");
+    var peso = tdPeso.textContent;
 
-if (peso <= 0 || peso >= 500) {
-    document.write("Peso Inválido!")
-    pesoEhValido = false;
-    tdImc.textContent = ("Peso Inválido!")
-}
+    var tdAltura = paciente.querySelector(".info-altura");
+    var altura = tdAltura.textContent;
 
-// Barra dupla significa "ou" se um item é uma "ou" outra opção.
+    var tdImc = document.querySelector(".info-imc");
 
-if (altura <= 0 || altura >= 3) {
-    document.write("Altura Inválida!")
-    alturaEhValida = false;
-    tdImc.textContent = ("Altura Inválido!")    
-}
+    var pesoEhValido = true;
+    var alturaEhValida = true;
 
-if (pesoEhValido && alturaEhValida) {
-    var imc = peso / (altura * altura);
-    tdImc.textContent = imc;
+    if (peso <= 0 || peso >= 500) {
+        document.write("Peso Inválido!")
+        pesoEhValido = false;
+        tdImc.textContent = ("Peso Inválido!")
+    }
+
+    // Barra dupla significa "ou" se um item é uma "ou" outra opção.//
+
+    if (altura <= 0 || altura >= 3) {
+        document.write("Altura Inválida!")
+        alturaEhValida = false;
+        tdImc.textContent = ("Altura Inválido!")    
+    }
+
+    if (pesoEhValido && alturaEhValida) {
+        var imc = peso / (altura * altura);
+        tdImc.textContent = imc.toFixed(2);
+    }
 }
