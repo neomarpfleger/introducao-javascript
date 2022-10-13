@@ -36,15 +36,9 @@ for (var i = 0; i < pacientes.length; i++) {
         paciente.classList.add("paciente-invalido");
     }
 
-<<<<<<< HEAD
     if (pesoEhValido && alturaEhValida) {
         var imc = peso / (altura * altura)
         tdImc.textContent = (imc.toFixed(2))
-=======
-    if (alturaEhValida && pesoEhValido) {
-        var imc = peso / (altura * altura);
-        tdImc.textContent = imc.toFixed(2);
->>>>>>> 70ac7a9f63179648d7f1e86cf39f41d86a82fbcc
     }
 }
 
