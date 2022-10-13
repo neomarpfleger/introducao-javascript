@@ -1,5 +1,5 @@
-//var titulo = document.querySelector(".titulo");
-//titulo.textContent = "Aparecida Nutricionista";
+var titulo = document.querySelector(".titulo");
+titulo.textContent = "Aparecida Nutricionista";
 
 var pacientes = document.querySelectorAll(".paciente");
 
@@ -19,7 +19,6 @@ for (var i = 0; i < pacientes.length; i++) {
     var alturaEhValida = true;
 
     if (peso <= 0 || peso >= 500) {
-        document.write("Peso Inválido!")
         pesoEhValido = false;
         tdImc.textContent = "Peso Inválido!";
         paciente.classList.add("paciente-invalido");
@@ -30,7 +29,6 @@ for (var i = 0; i < pacientes.length; i++) {
     // Barra dupla vertical significa "ou" se um item é uma "ou" outra opção.//
 
     if (altura <= 0 || altura >= 3.00) {
-        document.write("Altura Inválida!")
         alturaEhValida = false;
         tdImc.textContent = "Altura Inválido!";
         paciente.classList.add("paciente-invalido");
@@ -41,5 +39,12 @@ for (var i = 0; i < pacientes.length; i++) {
         tdImc.textContent = (imc.toFixed(2))
     }
 }
+titulo.addEventListener("click",);
 
-  // Barra dupla vertical significa "ou" se um item é uma "ou" outra opção.//
+function mostraMensagem(){
+    document.write("Ola eu fui clicado!");
+}
+var botaoAdicionar = document.querySelector("#adiciconar-paciente");
+botaoAdicionar.addEventListener("click", function() {
+    document.write("Fui clicado!");
+})
