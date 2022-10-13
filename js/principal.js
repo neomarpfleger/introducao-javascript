@@ -3,7 +3,7 @@
 
 var pacientes = document.querySelectorAll(".paciente");
 
-for (var i = 0; i < pacientes.length ; i++) {
+for (var i = 0; i < pacientes.length; i++) {
 
     var paciente = pacientes[i];
 
@@ -13,7 +13,7 @@ for (var i = 0; i < pacientes.length ; i++) {
     var tdAltura = paciente.querySelector(".info-altura");
     var altura = tdAltura.textContent;
 
-    var tdImc = document.querySelector(".info-imc");
+    var tdImc = paciente.querySelector(".info-imc");
 
     var pesoEhValido = true;
     var alturaEhValida = true;
@@ -21,19 +21,31 @@ for (var i = 0; i < pacientes.length ; i++) {
     if (peso <= 0 || peso >= 500) {
         document.write("Peso Inválido!")
         pesoEhValido = false;
-        tdImc.textContent = ("Peso Inválido!")
+        tdImc.textContent = "Peso Inválido!";
+        paciente.classList.add("paciente-invalido");
+        //paciente.style.backgroundColor= "red";
+        //Linha acima modifica cor de fundo da linha diretamente pelo o JS porém não é uma boa prática.
     }
 
-    // Barra dupla significa "ou" se um item é uma "ou" outra opção.//
+    // Barra dupla vertical significa "ou" se um item é uma "ou" outra opção.//
 
-    if (altura <= 0 || altura >= 3) {
+    if (altura <= 0 || altura >= 3.00) {
         document.write("Altura Inválida!")
         alturaEhValida = false;
-        tdImc.textContent = ("Altura Inválido!")    
+        tdImc.textContent = "Altura Inválido!";
+        paciente.classList.add("paciente-invalido");
     }
 
+<<<<<<< HEAD
     if (pesoEhValido && alturaEhValida) {
         var imc = peso / (altura * altura)
         tdImc.textContent = (imc.toFixed(2))
+=======
+    if (alturaEhValida && pesoEhValido) {
+        var imc = peso / (altura * altura);
+        tdImc.textContent = imc.toFixed(2);
+>>>>>>> 70ac7a9f63179648d7f1e86cf39f41d86a82fbcc
     }
 }
+
+  // Barra dupla vertical significa "ou" se um item é uma "ou" outra opção.//
