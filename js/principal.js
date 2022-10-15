@@ -40,9 +40,12 @@ for (var i = 0; i < pacientes.length; i++) {
     }
 }
 
-function mostraMensagem(){
+/*function mostraMensagem(){
     document.write("Ola eu fui clicado!");
-}
+    Exemplo de função nomeada.
+}*/
+
+
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 botaoAdicionar.addEventListener("click", function(event) {
     event.preventDefault();
@@ -78,6 +81,8 @@ botaoAdicionar.addEventListener("click", function(event) {
     tabela.appendChild(pacienteTr);
 });
 
-titulo.addEventListener("click",function (){
+
+/*titulo.addEventListener("click",function (){
     document.write("fui clicado!")
-});
+    Exemplo de função anonima.
+});*/
