@@ -43,3 +43,5 @@ botaoAdicionar.addEventListener("click", function(event) {
     document.write("fui clicado!")
     Exemplo de função anonima.
 });*/
+
+var neomar = 12;
