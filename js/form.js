@@ -13,6 +13,9 @@ botaoAdicionar.addEventListener("click", function(event) {
     var tabela = document.querySelector("#tabela-pacientes");
     
     tabela.appendChild(pacienteTr);
+
+    form.reset();
+    /*O reset serve para limpar os campos do formulario após clicar no botão*/
 });
 
 /*function mostraMensagem(){
@@ -42,20 +45,11 @@ function montaTr(paciente){
     pacienteTr.classList.add("paciente");
     /*linha acima coloca a classe paciente aos pacientes adcionados pelo formulario*/
 
-    var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-    /*parte 2 cria o tr e o td para cada paciente*/
-
-    /*3*/
-    nomeTd.textContent = paciente.nome;
-    pesoTd.textContent = paciente.peso;
-    alturaTd.textContent = paciente.altura;
-    gorduraTd.textContent = paciente.gordura;
-    imcTd.textContent = paciente.imc;
-    /*Parte 3 coloca os valores no td*/
+    var nomeTd = montaTd(paciente.nome, "info-nome");
+    var pesoTd = montaTd(paciente.peso, "info-peso");
+    var alturaTd = montaTd(paciente.altura, "info-altura");
+    var gorduraTd = montaTd(paciente.gordura, "info-gordura");
+    var imcTd = montaTd(paciente.imc, "info-imc");
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
@@ -65,4 +59,12 @@ function montaTr(paciente){
 
     return pacienteTr;
 }
-/*video 7.33*/
+function montaTd(dado,classe){
+
+    var td = document.createElement("td");
+    td.textContent = dado ;
+    td.classList.add(classe);
+
+    return td
+}
+// 9 minutos de video
