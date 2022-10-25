@@ -10,6 +10,17 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     var pacienteTr = montaTr(paciente);
 
+    var erro = validaPaciente(paciente);
+
+
+    if(erro.length > 0){
+        var mensagemErro = document.querySelector("#mensagemErro");
+        mensagemErro.textContent= erro;
+        return
+    }
+
+
+    //Adiciona o paciente na tabela
     var tabela = document.querySelector("#tabela-pacientes");
     
     tabela.appendChild(pacienteTr);
@@ -64,7 +75,13 @@ function montaTd(dado,classe){
     var td = document.createElement("td");
     td.textContent = dado ;
     td.classList.add(classe);
-
     return td
 }
-// 9 minutos de video
+
+function validaPaciente(paciente){
+    if(validaPeso(paciente.peso)){
+        return"";
+    }else{
+        return "O peso é inválido";
+    }
+}
