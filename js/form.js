@@ -10,15 +10,11 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     var pacienteTr = montaTr(paciente);
 
-    var erro = validaPaciente(paciente);
-
-
-    if(erro.length > 0){
-        var mensagemErro = document.querySelector("#mensagemErro");
-        mensagemErro.textContent= erro;
-        return
+    var erros = validaPaciente(paciente);
+    if(erros.length > 0){
+        exibeMensagemDeErro(erros);
+        return;
     }
-
 
     //Adiciona o paciente na tabela
     var tabela = document.querySelector("#tabela-pacientes");
@@ -28,6 +24,15 @@ botaoAdicionar.addEventListener("click", function(event) {
     form.reset();
     /*O reset serve para limpar os campos do formulario após clicar no botão*/
 });
+
+function exibeMensagemDeErro(erros){
+    var ul = document.querySelector("#mensagensErro");
+    erros.forEach(function(erro){
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+    });
+}
 
 /*function mostraMensagem(){
     document.write("Ola eu fui clicado!");
@@ -79,9 +84,21 @@ function montaTd(dado,classe){
 }
 
 function validaPaciente(paciente){
+
+    var erros  = [];
+
     if(validaPeso(paciente.peso)){
-        return"";
+
     }else{
-        return "O peso é inválido";
+        erros.push("Peso é inválido");
     }
+
+    if(validaAltura(paciente.altura)){
+    
+    }else{
+        erros.push("Altura é inválida");
+    }
+
+    return erros;
 }
+// tempo do video 7:30.
