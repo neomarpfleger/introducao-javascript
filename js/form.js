@@ -23,10 +23,15 @@ botaoAdicionar.addEventListener("click", function(event) {
 
     form.reset();
     /*O reset serve para limpar os campos do formulario após clicar no botão*/
+
+    var mensagensDeErro = document.querySelector("#mensagensErro");
+    mensagensDeErro.innerHTML = ""
 });
 
 function exibeMensagemDeErro(erros){
     var ul = document.querySelector("#mensagensErro");
+    ul.innerHTML = ""
+
     erros.forEach(function(erro){
         var li = document.createElement("li");
         li.textContent = erro;
@@ -87,16 +92,32 @@ function validaPaciente(paciente){
 
     var erros  = [];
 
+    if(paciente.nome.length == 0){
+        erros.push("O nome não pode ser em branco.")
+    }
+
     if(validaPeso(paciente.peso)){
 
     }else{
-        erros.push("Peso é inválido");
+        erros.push("Peso é inválido.");
     }
 
     if(validaAltura(paciente.altura)){
     
     }else{
-        erros.push("Altura é inválida");
+        erros.push("Altura é inválida.");
+    }
+
+    if(paciente.gordura.length == 0){
+        erros.push("A gordura não pode ser em branco.")
+    }
+
+    if(paciente.peso.length == 0){
+        erros.push("O peso não pode ser em branco")
+    }
+
+    if(paciente.altura.length == 0){
+        erros.push("A altura não pode ser em branco.")
     }
 
     return erros;
